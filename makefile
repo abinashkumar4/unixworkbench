@@ -1,6 +1,9 @@
-all: README.md
+all:  README.md 
 
-README.md:
-	echo '# Guessing Game Bash Script for Unix Workbench\n' > README.md
-	echo '* This Make file was ran at: $(shell date +%Y-%m-%d:%H:%M:%S)\n' >> README.md
-	echo '* There were $(shell wc -l < guessinggame.sh) lines in guessinggame.sh\n' >> README.md
+README.md:  
+	@touch README.md
+	@echo "## Peer Assignment Project, The Unix Workbench" > README.md
+	@date '+%D %T' --date='now' >> README.md
+	@echo "The number of code lines in guessinggame.sh is: " $$(egrep ".+" guessinggame.sh | wc -l)>> README.md
+cleanup:
+	rm README.md
